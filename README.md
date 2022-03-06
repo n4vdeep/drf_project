@@ -1,13 +1,13 @@
 # Django Rest Framework Project
 
-## Basics of Requests
+## Basics of REST API HTTP Requests
 
 Using the python module `requests` we can *get* url endpoints in:
 - Raw text or
 - JSON format
 
 ### Raw Text
-get_response.text
+`get_response.text`
 
 **Output**:
 
@@ -41,7 +41,7 @@ get_response.text
 ```
 
 ### JSON Format
-get_response.json()
+`get_response.json()`
 
 **Output**
 ```
