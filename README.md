@@ -47,3 +47,30 @@ Using the python module `requests` we can *get* url endpoints in:
 ```
 {'args': {}, 'data': '', 'files': {}, 'form': {'query': 'Hello Django Rest Framework'}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Content-Length': '33', 'Content-Type': 'application/x-www-form-urlencoded', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.27.1', 'X-Amzn-Trace-Id': 'Root=1-62251396-0b054ed2046ca73351f30438'}, 'json': None, 'method': 'GET', 'origin': '90.196.238.206', 'url': 'https://httpbin.org/anything'}
 ```
+
+## Run Django Server
+`cd` to *backend* Django project and run `python manage.py run sever 8000`.
+
+8000 is the port which we manually specified on which you want to run this server.
+You can now take the endpoint url: `http://127.0.0.1:8000/` and replace the `endpoint` variable in the *py_client/basic.py* file to point to it.
+
+Navigate to this url in the browser and you should see the Django sample starter page.
+
+If you run `get_response.text` you should get back the HTML of the sample Django starter page.
+
+## API View
+We have created the app called api in the backend project with `python manange.py startapp api`
+
+In *api* > *views.py* build the function that will `return` the `JsonResponse` with a message for testing.
+
+*JSON response is built into Django when you import `django.http` -> `JsonResponse`*
+
+We have also added *api* > *urls.py* here and mapped a path with *urlpatterns*.
+
+We also edit the main projects *urls.py* file to map in the above api.urls
+
+This effectively has a tail like so:
+
+*views.py* = define all your function code ->
+*backend*>*api*>*urls.py* = define a mapping to pick up this the function code in *view.py*
+*cfehome*>*urls.py* = picks up the url patterns in the *backend*>*api*>*urls.py*.
