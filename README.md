@@ -49,6 +49,7 @@ Using the python module `requests` we can *get* url endpoints in:
 ```
 
 ## Run Django Server
+
 `cd` to *backend* Django project and run `python manage.py run sever 8000`.
 
 8000 is the port which we manually specified on which you want to run this server.
@@ -59,6 +60,8 @@ Navigate to this url in the browser and you should see the Django sample starter
 If you run `get_response.text` you should get back the HTML of the sample Django starter page.
 
 ## API View
+*getting back the raw view data*
+
 We have created the app called api in the backend project with `python manange.py startapp api`
 
 In *api* > *views.py* build the function that will `return` the `JsonResponse` with a message for testing.
@@ -69,8 +72,13 @@ We have also added *api* > *urls.py* here and mapped a path with *urlpatterns*.
 
 We also edit the main projects *urls.py* file to map in the above api.urls
 
-This effectively has a tail like so:
+This effectively has a trail like so:
 
 *views.py* = define all your function code ->
 *backend*>*api*>*urls.py* = define a mapping to pick up this the function code in *view.py*
 *cfehome*>*urls.py* = picks up the url patterns in the *backend*>*api*>*urls.py*.
+
+## Echo GET Data
+*Getting data from a database*
+
+## Django Model as API Response
