@@ -1,8 +1,10 @@
 import json
 from django.http import JsonResponse
 
+from products.models import Product
+
 # Define Function based view
-def api_home(request, *args, **kwargs):
+def api_home_OLD(request, *args, **kwargs):
     # request -> HttpRequest -> Django
     # print(dir(request))
     # request.body
@@ -19,4 +21,16 @@ def api_home(request, *args, **kwargs):
     data['headers'] = dict(request.headers)
     print(data['headers'])
     data['content_type'] = request.content_type
+    return JsonResponse(data)
+
+def api_home(request, *args, **kwargs):
+    model_data = Product.objects.all().order_by("?").first()
+    data = {}
+
+    if model_data:
+        data['id'] = model_data.id
+        data['title'] = model_data.title
+        data['content'] = model_data.content
+        data['price'] = model_data.price
+        # print(data)
     return JsonResponse(data)
