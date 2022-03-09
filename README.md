@@ -81,4 +81,20 @@ This effectively has a trail like so:
 ## Echo GET Data
 *Getting data from a database*
 
+**TBC**
+
 ## Django Model as API Response
+Here we create the first Django model to query data from. In the same way we made the api app we make a new app called products.
+
+In *products > models.py* we create the simple class based model that consists of a title, content and price.
+
+Once the model is created and saved we run the migration to the database using:
+- `python manage.py makemigrations`
+- `python manage.py migrate`
+
+Via the Django shell `python manage.py shell`, we add some data to the database we migrated above with:
+- `from products.models import Product`
+- `Product.objects.create(title='Hello World', content='This is amazing', price=0.00)`
+
+To get back the products in the shell:
+- `Product.objects.all().order_by("?").first()`
